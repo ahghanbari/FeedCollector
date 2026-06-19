@@ -10,3 +10,4 @@ requests==2.22.0
 pyrfc3339==1.1
 psycopg2-binary>=2.8
 pyjwt==1.7.0
+pytest-django==4.5.2
