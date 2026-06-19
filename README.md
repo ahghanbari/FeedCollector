@@ -77,6 +77,6 @@ query allSources {
 }
 ```
 
-## Contributing
+## Contribution
 
 Feel free to raise a issue or make a pull request to fix a bug or add a new feature.
