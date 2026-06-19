@@ -1,18 +1,22 @@
-## RSS scraper
+## RSS FEED COLLECTOR
 
-Best RSS reader u ever seen :)
+In this project, I created a simple RSS feed collector with `Django` and `GraphQL`. It allows users to create an account and add RSS feed sources then it retruns the latest posts by periodically fetching them. I used `Redis` and `Celery` for background tasks and `docker` for deploy. This project aim is to provide only the back-end part.
 
-for run (obviously u need docker and docker-compose):
+## Requirements
+ * Docker and Docker Compose
+
+## Setting up the Project
 
 ```bash
-sudo docker-compose up --build
+sudo docker compose up --build
 ```
 
-for refreshing all feed manually:
+For refreshing feed manually:
 ```bash
-python3 manage.py refreshfeeds
+docker compose exec web python3 manage.py refreshfeeds
 ```
 
+## GraphQL
 some curl example for graphql:
 ```bash
 curl http://localhost:/graphql -H "Authorization: JWT $token" -d query="query { oneFeed(sourceId: $id) {title } }"
@@ -22,7 +26,7 @@ curl http://localhost:/graphql -H "Authorization: JWT $token" -d query="query al
 curl http://localhost:/graphql -H "Authorization: JWT $token" -d query='mutation addSource { addSource(input: { feedUrl: "https://rss.art19.com/apology-line"}) { ok } }'
 ```
 
-some graphql example query:
+Some graphql example query:
 
 ```bash
 mutation createUser {
@@ -72,3 +76,7 @@ query allSources {
   }
 }
 ```
+
+## Contributing
+
+Feel free to raise a issue or make a pull request to fix a bug or add a new feature.
